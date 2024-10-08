@@ -1,0 +1,19 @@
+{% load menu_tags %}  <!-- Загрузка тегов в начале файла -->
+
+<li>
+    {% if item.url %}
+        <a href="{{ item.url }}">{{ item.name }}</a>
+    {% elif item.named_url %}
+        <a href="{{ item.named_url }}">{{ item.name }}</a>
+    {% else %}
+        {{ item.name }}
+    {% endif %}
+
+    {% if item.children.exists %}
+        <ul>
+            {% for child in item.children.all %}
+                {% include "menu_item.html" with item=child %}  <!-- Включение шаблона для дочернего элемента -->
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

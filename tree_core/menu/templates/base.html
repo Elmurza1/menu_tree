@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+    {% load menu_tags %}  <!-- Загрузка тегов из вашего menu_tags.py -->
+    
+    {% block content %}  <!-- Начало блока content -->
+        <ul>
+            {% render_menu 'main_menu' %}  <!-- Вызов вашего тега render_menu -->
+        </ul>
+    {% endblock %}  <!-- Конец блока content -->
+</body>
+</html>
